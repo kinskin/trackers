@@ -1,7 +1,7 @@
 <h1> All the origin of kopis </h1>
 
 <% if user_signed_in? %>
-		<p><%= link_to 'log out', destroy_user_session_url, method: :delete %></p><br>
+		<p><%= button_to 'log out', destroy_user_session_url, method: :delete %></p><br>
 		<p><%= link_to 'Add new origin', new_origin_path %></p>
 
 		<% @origin.each do |origin| %>

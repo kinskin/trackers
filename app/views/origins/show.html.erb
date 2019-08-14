@@ -6,9 +6,6 @@
 			Origin number: <strong><%= @origin.phone_number %></strong>
 		</p>
 		<%= button_to 'log out', destroy_user_session_url, method: :delete %>
-		<p><%= link_to 'Edit', edit_origin_path(@origin.id) %></p>
-		<p><%= button_to 'Destroy', origin_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-		<br>
 		<h3> Kopis that is from this origin </h3>
 		<%= link_to 'Add Kopi', new_kopi_path %>
 		<br>
@@ -31,10 +28,12 @@
 			Origin number: <strong><%= @origin.phone_number %></strong>
 		</p>
 	<%= link_to 'log in', new_user_session_url %>
+	<br>
+	<h3> Kopis that is from this origin </h3>
 	<% @kopis.each do |kopi| %>
-
 			<p>Coffee name: <%= kopi.name %>
 			<p>Coffee roasted level: <%= kopi.roast.roastedness%></p>
+			<br>
 	<% end %>
 <% end %>
 

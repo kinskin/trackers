@@ -35,16 +35,18 @@ class KopisController < ActionController::Base
 
     def update
       @kopi = Kopi.find(params[:id])
+      id = @kopi.origin_id
       @kopi.update(kopi_params)
 
-      redirect_to @kopi
+      redirect_to origin_path(id)
     end
 
     def destroy
       @kopi = Kopi.find(params[:id])
+      id = @kopi.origin_id
       @kopi.destroy
 
-      redirect_to kopis_path
+      redirect_to origin_path(id)
     end
 
 

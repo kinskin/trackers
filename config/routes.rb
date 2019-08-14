@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'origins#index'
 
   resources :origins
-  resources :kopis, except: [:new]
+  resources :kopis, except: [:new, :edit]
 
   get '/origins/:id/kopis/new' => 'kopis#new', as: 'new_kopi'
-  post '/origins/:id/kopis' => 'kopis#create'
+  get '/origins/:id/kopis/edit' => 'kopis#edit', as: 'edit_kopi'
 end
