@@ -6,6 +6,7 @@ class KopisController < ActionController::Base
     def new
 
       @origins = Origin.all
+      @origin = Origin.find(params[:id])
 
       @roasts = Roast.all
 
@@ -15,9 +16,10 @@ class KopisController < ActionController::Base
       #render plain: params[:kopis].inspect
 
       @kopi = Kopi.new(kopi_params)
-
+      id = @kopi.origin_id
       @kopi.save
-      redirect_to @kopi
+
+      redirect_to origin_path(id)
 
     end
 
