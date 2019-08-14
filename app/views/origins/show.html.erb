@@ -1,11 +1,28 @@
 <h1>Origin Info</h1>
 
 <p>
-	<%= @origin.location %>
-	<%= @origin.phone_number %>
+	Country of origin: <strong><%= @origin.location %></strong><br>
+	Origin number: <strong><%= @origin.phone_number %></strong>
 </p>
 
 <p><%= link_to 'Edit', edit_origin_path(@origin.id) %></p>
 <p><%= button_to 'Destroy', origin_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<br>
+<h3> Kopis that is from this origin </h3>
+
+<% @kopis.each do |kopi| %>
+
+	<p>Coffee name: <%= kopi.name %>
+	<p>Coffee roasted level: <%= kopi.roast.roastedness%></p>
+	<p><%= link_to 'Show', kopi_path(kopi) %></p>
+	<p><%= link_to 'Edit', edit_kopi_path(kopi) %></p>
+	<p><%= button_to 'Destroy', kopi_path(kopi),
+              method: :delete,
+              data: { confirm: 'Are you sure? REALLLY??????' } %>
+  </p>
+	<br>
+<% end %>
+
+
 
 <%= link_to 'Back', origins_path %>

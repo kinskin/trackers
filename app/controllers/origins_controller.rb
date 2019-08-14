@@ -15,6 +15,8 @@ class OriginsController < ActionController::Base
 
   def show
     @origin = Origin.find(params[:id])
+    # @kopi = Kopi.find_by(origin_id: :id)
+    @kopis = @origin.kopi
   end
 
   def edit
