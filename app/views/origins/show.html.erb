@@ -4,3 +4,8 @@
 	<%= @origin.location %>
 	<%= @origin.phone_number %>
 </p>
+
+<p><%= link_to 'Edit', edit_origin_path(@origin.id) %></p>
+<p><%= button_to 'Destroy', origin_path, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+<%= link_to 'Back', origins_path %>

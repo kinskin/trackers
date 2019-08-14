@@ -1,7 +1,7 @@
-<h1> New Origin page </h1>
+<h1> Edit origin page </h1>
 
 
-<%= form_with scope: :origins, url: origins_path, local: true do |form| %>
+<%= form_with scope: :origins, model: @origin, local: true do |form| %>
 
   <p>
     <%= form.label :location %><br>
@@ -17,3 +17,5 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+<p><%= link_to 'Back', origins_path %></p>

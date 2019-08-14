@@ -1,4 +1,7 @@
 class OriginsController < ActionController::Base
+  def index
+    @origin = Origin.all
+  end
 
   def new
   end
@@ -7,17 +10,36 @@ class OriginsController < ActionController::Base
     @origin = Origin.new(origin_params)
 
     @origin.save
-    render plain: "IT SAVED IN DB"
+    redirect_to @origin
   end
 
   def show
     @origin = Origin.find(params[:id])
   end
 
-private
-
-  def origin_params
-    params.require(:origins).permit(:location, :phone_number)
+  def edit
+    @origin = Origin.find(params[:id])
   end
+
+  def update
+    @origin = Origin.find(params[:id])
+    @origin.update(origin_params)
+
+    redirect_to @origin
+  end
+
+  def destroy
+    p "deleting!"
+    @origin = Origin.find(params[:id])
+    @origin.destroy
+
+    redirect_to origins_path
+  end
+
+  private
+
+    def origin_params
+      params.require(:origins).permit(:location, :phone_number)
+    end
 
 end
